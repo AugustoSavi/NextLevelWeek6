@@ -40,4 +40,28 @@ Acesse em seu navegador http://localhost:3000/
 - [ ] Aula 03
 - [ ] Aula 04
 - [ ] Aula 05
-- [ ] O Próximo Nivel
+
+## Aula 03 - Regras de autorização do Firebase
+
+```json
+{
+  "rules": {
+    "rooms": {
+      ".read": false,
+      ".write": "auth != null",
+      "$roomId": {
+        ".read": true,
+        ".write": "auth != null && (!data.exists() || data.child('authorId').val() == auth.id)",
+        "questions": {
+          ".read": true,
+          ".write": "auth != null && (!data.exists() || data.parent().child('authorId').val() == auth.id)",
+          "likes": {
+            ".read": true,
+            ".write": "auth != null && (!data.exists() || data.child('authorId').val() == auth.id)",  
+          }
+        }
+      }
+    }
+  }
+}
+```

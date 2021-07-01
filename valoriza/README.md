@@ -34,4 +34,4 @@ $ yarn start
 - [x] Aula 02
 - [x] Aula 03
 - [x] Aula 04
-- [ ] Aula 05
+- [x] Aula 05

@@ -18,7 +18,7 @@ class CreateUserService {
     });
 
     if (tagAlreadyExists) {
-      throw new Error("User already exists");
+      throw new Error("Tag already exists");
     }
 
     const tag = tagsRepository.create({
